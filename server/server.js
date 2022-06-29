@@ -18,6 +18,7 @@ app.use('/api', apiRouter)
 // app.use(express.static(path.resolve(__dirname, '../src')));
 app.use(express.static(path.resolve(__dirname, './build/static')));
 
+//handle all other routes
 app.use((req,res) => res.sendStatus(404));
 
 // Global 

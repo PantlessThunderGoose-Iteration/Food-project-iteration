@@ -18,7 +18,7 @@ router.post('/review', mealController.postReview, (req, res) =>{
   return res.status(200).json(res.locals.userReview);
 });
 
-//update
+//update //update recipe instead?
 router.patch('/review/:id', mealController.updateReview,  (req,res) => {
     return res.status(200).json(res.locals.updatedReview)
 })

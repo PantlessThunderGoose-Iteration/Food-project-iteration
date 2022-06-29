@@ -1,10 +1,16 @@
 const fetch = require('node-fetch');
 const Meal = require('../models/recipeModel');
+const db = require('../models/sqlmodel');
 
 const mealController = {};
 
 mealController.createRecipe = async (req, res, next) => {
+
+  //query command
+
   const { strCategory, strArea, strInstructions, strTags } = req.body;
+
+  
   try {
     const data = await Meal.UserRecipe.create({
       strCategory,
