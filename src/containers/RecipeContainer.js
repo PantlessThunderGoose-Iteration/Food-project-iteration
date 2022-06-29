@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import Review from '../components/Review';
-import ReviewContainer from './NewReviewContainer';
+import React from 'react';
+import ReviewContainer from './ReviewContainer';
 
 //function recipe passing in the meal state
 function Recipe({ meal }) {

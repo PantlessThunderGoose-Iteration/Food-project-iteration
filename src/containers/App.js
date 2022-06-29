@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import "../styling/App.css";
-import Recipe from "./newRecipe";
+import Recipe from "./RecipeContainer";
 import Main from "../components/Main.js";
 import UserRecipe from "../components/UserRecipe.js"
 import { recipePage } from '../handlers/handlers'

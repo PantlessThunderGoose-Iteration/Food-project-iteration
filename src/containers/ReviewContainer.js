@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Review from '../components/newReview'
+import Review from '../components/Review'
 // bring in the handleinput change
 //import the value state? or just send in a obj      
 //make two divs one to hold the review input field the other to hold the post cards 
@@ -49,12 +49,7 @@ const ReviewContainer = (props) => {
         const { name, value } = e.target;
         reviewInputObj = ({ ...reviewInputObj, [name]: value });
     };
-    // {
-    //     strUsername: "user input"
-    //     rating:
-    //     strReview:
-    //     recipeId: 
-    // }
+
     //handle click function 
     const handleClickSumbmit = (e) => {
         //post the review to DB 
@@ -78,8 +73,6 @@ const ReviewContainer = (props) => {
     for (let i = 0; i < reviews.length; i++) {
         renderReviews.push(<Review data={reviews[i]} />)
     }
-
-
 
     return (
         <div id='reviewBox'>
