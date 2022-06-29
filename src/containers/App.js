@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 import "../styling/App.css";
-import Recipe from "./Recipe";
+import Recipe from "./newRecipe";
 import Main from "../components/Main.js";
 import UserRecipe from "../components/UserRecipe.js"
 import { recipePage } from '../handlers/handlers'
@@ -14,7 +14,7 @@ import { recipePage } from '../handlers/handlers'
 function App() {
   const [meal, setMeal] = useState("");
   const [country] = useState("");
- 
+
 
 
   // const url = 'https://themealdb.com/api/json/v1/1/random.php?a=Croatian';
@@ -47,7 +47,7 @@ function App() {
   // };
 
   // recipePage(meal,setMeal)
-  
+
   let info = "";
   {
     if (meal.strArea === "British") {
@@ -200,7 +200,7 @@ function App() {
     <div className="App">
       {/* <p>blah blah blah food dofjakjndfcikjabefkjbawefjh</p> */}
       <Link to='/'>
-        <button id='btn1' onClick={() =>  recipePage(meal, setMeal) }>Get Random Culture</button>
+        <button id='btn1' onClick={() => recipePage(meal, setMeal)}>Get Random Culture</button>
       </Link>
       <Link to='/recipe'><button id='btn2'>Get Recipe from this Culture</button></Link>
       <Link to='/userrecipe'><button id='btn3'>Write recipe</button></Link>
