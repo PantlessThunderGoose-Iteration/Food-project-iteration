@@ -22,7 +22,7 @@ function UserRecipe() {
       <div id="recipeBox">
         <h3>My Recipe: </h3>
         <form>
-        <label>Culture: </label>
+          <label>Culture: </label>
           <input type="text" name="strUsername" />
           <label>Ingredients: </label>
           <input type="text" name="strUsername" />
@@ -34,7 +34,7 @@ function UserRecipe() {
           <br />
           <label>Picture: </label>
           <button id="uploadbtn">Upload Picture</button>
-          <br/>
+          <br />
           <button id="submitbtn">Submit Recipe</button>
         </form>
       </div>
