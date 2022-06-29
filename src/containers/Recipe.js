@@ -2,13 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Review from '../components/Review';
 
+//---------getReviews send to back end-----------
+//send in req body the recipeid 
+  //on backend query the reviews to send as the response that correlate to the recipeid
+//set intial state to make a get request to the DB to get all the reviews 
+//then we want to send a post request to the DB on the submit button
+// updating the state to add the new review
+//the updated state will trigger a rerender for the review box 
+//start by decalring the wrapper for the function 
+  //use useEffect hook method to fetch the data from the database using the get method 
+  //use jsonify on the data retrieved (make sure to use promise or await for synchornicity)
+
+
 const initialValues = {
   strReview: '',
   strUsername: '',
   rating: '',
 };
 
-function Recipe({ meal }) {
+//function recipe passing in the meal state
+function Recipe({ meal }) { //recipe ID = meal.idMeal
   //const [meal, setMeal] = useState('')
   const newArr = [];
 
@@ -23,29 +36,36 @@ function Recipe({ meal }) {
   const [fetchedReviews, setfetchedReviews] = useState([]);
   const [values, setValues] = useState(initialValues);
 
+  const getRecipeObj = {recipeId: meal.idMeal};
+
   useEffect(() => {
-    fetch('http://localhost:8080/api/review', { method: 'GET' })
+    fetch('http://localhost:8080/getReviews', { method: 'GET', 
+      headers: {
+      'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify(getRecipeObj) 
+    })
       .then((data) => data.json())
       .then((data) => {
         // console.log(data);
         setfetchedReviews(data);
       })
       .catch((error) => console.log(error));
-  },[]); //end of useEffect
+  }, []); //end of useEffect
 
   const renderReviews = () => {
-    const filteredReviews = fetchedReviews.filter(review => {return review.recipeId === parseInt(meal.idMeal)});
+    const filteredReviews = fetchedReviews.filter(review => { return review.recipeId === parseInt(meal.idMeal) });
     console.log(filteredReviews);
     return filteredReviews.map(review => {
-        return (
-          <Review
-            id={review._id}
-            strReview={review.strReview}
-            username={review.strUsername}
-            rating={review.rating}
-            mealId={review.recipeId}
-          />
-        );
+      return (
+        <Review
+          id={review._id}
+          strReview={review.strReview}
+          username={review.strUsername}
+          rating={review.rating}
+          mealId={review.recipeId}
+        />
+      );
     });
   };
 
@@ -54,6 +74,7 @@ function Recipe({ meal }) {
     setValues({ ...values, [name]: value });
   };
 
+  //const submitReview = () => {
   const handleClick = (e) => {
     e.preventDefault();
 
@@ -82,8 +103,9 @@ function Recipe({ meal }) {
         }
       })
       .catch((error) => console.log(error));
-      setValues(initialValues);
+    setValues(initialValues);
   }; //end of handleCLick
+  //}
 
   return (
     <div className='Recipe'>
@@ -157,7 +179,7 @@ function Recipe({ meal }) {
             {/* </form> */}
           </div>
         </div>
-        
+
         <div id='reviews'>
           <h3>Reviews: </h3>
           {renderReviews()}</div>

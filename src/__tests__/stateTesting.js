@@ -3,6 +3,8 @@
 //import { getByTestId, render } from "react-testing-library";
 import App from '../containers/App'
 import Recipe from '../containers/Recipe'
+import Main from '../components/Main'
+
 import { getByTestId, render, screen } from '@testing-library/react';
 
 
@@ -31,7 +33,7 @@ describe('Handlers', () => {
             expect(meal).toBe(mealState)
         });
         it('Should return default countryState when undefined is passed in as an input', () => {
-            const { container } = render(<Recipe />);
+            const { container } = render(<Main />);
             const country = screen.getByTestId(container, "country");
             expect(country).toBe(countryState)
         })
