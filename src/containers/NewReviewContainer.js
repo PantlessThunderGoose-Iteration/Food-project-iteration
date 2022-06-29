@@ -106,8 +106,11 @@ const ReviewContainer = () => {
             </div>
             {/* Review Post Box */}
             <div id ="reviewList">
+                <h3>Reviews:</h3>
                 {renderReviews}
             </div>
         </div>
     )
 }
+
+export default ReviewContainer
