@@ -5,10 +5,10 @@ import {
   Link,
 } from "react-router-dom";
 import { useState } from "react";
-import "./App.css";
+import "../styling/App.css";
 import Recipe from "./Recipe";
-import Main from "./Main.js";
-import UserRecipe from "./UserRecipe.js"
+import Main from "../components/Main.js";
+import UserRecipe from "../components/UserRecipe.js"
 
 function App() {
   const [meal, setMeal] = useState("");

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import Review from './Review';
+import Review from '../components/Review';
 
 const initialValues = {
   strReview: '',
