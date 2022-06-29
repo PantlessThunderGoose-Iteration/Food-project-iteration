@@ -14,15 +14,15 @@ import Review from '../components/Review';
   //use jsonify on the data retrieved (make sure to use promise or await for synchornicity)
 
 
-const initialValues = {
-  strReview: '',
-  strUsername: '',
-  rating: '',
-};
+// const initialValues = {
+//   strReview: '',
+//   strUsername: '',
+//   rating: '',
+// };
 
 //function recipe passing in the meal state
 function Recipe({ meal }) { //recipe ID = meal.idMeal
-  //const [meal, setMeal] = useState('')
+  const [meal, setMeal] = useState('')
   const newArr = [];
 
   for (let i = 1; i <= 20; i++) {
@@ -38,20 +38,20 @@ function Recipe({ meal }) { //recipe ID = meal.idMeal
 
   const getRecipeObj = {recipeId: meal.idMeal};
 
-  useEffect(() => {
-    fetch('http://localhost:8080/getReviews', { method: 'GET', 
-      headers: {
-      'Content-Type': 'application/json',
-      }, 
-      body: JSON.stringify(getRecipeObj) 
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        // console.log(data);
-        setfetchedReviews(data);
-      })
-      .catch((error) => console.log(error));
-  }, []); //end of useEffect
+  // useEffect(() => {
+  //   fetch('http://localhost:8080/getReviews', { method: 'GET', 
+  //     headers: {
+  //     'Content-Type': 'application/json',
+  //     }, 
+  //     body: JSON.stringify(getRecipeObj) 
+  //   })
+  //     .then((data) => data.json())
+  //     .then((data) => {
+  //       // console.log(data);
+  //       setfetchedReviews(data);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }, []); //end of useEffect
 
   const renderReviews = () => {
     const filteredReviews = fetchedReviews.filter(review => { return review.recipeId === parseInt(meal.idMeal) });
@@ -175,15 +175,18 @@ function Recipe({ meal }) { //recipe ID = meal.idMeal
             {/* <Link to='/review'><button id='btn2' onClick={() => handleClick(review)}>Submit</button></Link>
           <Routes>
         <Route path="/review" />
-        </Routes> */}
-            {/* </form> */}
-          </div>
+        </Routes>
+            </form> */}
+           </div>
         </div>
 
-        <div id='reviews'>
-          <h3>Reviews: </h3>
-          {renderReviews()}</div>
+          <div id='reviews'>
+            <h3>Reviews: </h3>
+            {renderReviews()}
+          </div>
       </div>
+      
+      
     </div>
   );
 }

@@ -15,11 +15,11 @@ import Review from '../components/newReview'
 //}
 
 // get meal.idMeal from Recipe
-const ReviewContainer = () => {
+const ReviewContainer = (props) => {
     const [reviews, setReviews] = useState([]);
 
     // object for request body (we only want to get reviews for the specific recipe on the page)
-    const getRecipeObj = {recipeId: meal.idMeal};
+    const getRecipeObj = {recipeId: props.meal.idMeal};
 
     // use effect will trigger when the component mounts.
     // it will grab the reviews from the database and update the reviews state
