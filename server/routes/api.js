@@ -4,16 +4,29 @@ const router = express.Router();
 
 const mealController = require('../controllers/mealController');
 
-//get
+//get reviews
+router.get ('/getReviews', mealController.getReviews, (req, res) => {
+    return res.status(200).json(res.locals.reviews)
+})
+
+
+//post request for the database
+router.post('/postRecipe', mealController.postRecipe, (req, res)=>{
+    return res.status(200).json("recipe is saved in the database");
+})
+
+
+
+
 router.get('/review',mealController.getReview, (req, res) => {
  return res.status(200).json(res.locals.getReview);
 })
 
-//post
 router.post('/userRecipes', mealController.createRecipe, (req,res) =>{
     return res.status(200).json(res.locals.userRecipes);
 });
 
+//set up
 router.post('/review', mealController.postReview, (req, res) =>{
   return res.status(200).json(res.locals.userReview);
 });

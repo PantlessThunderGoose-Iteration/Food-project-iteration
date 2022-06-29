@@ -7,7 +7,8 @@ CREATE TABLE reviews(
 stars INT,
 comments VARCHAR,
 user_id INT,
-recipe_id INT
+recipe_id INT.
+email VARCHAR
 )
 
 CREATE TABLE recipe_book(
@@ -55,3 +56,12 @@ supertest:
 
 post request - to add the recipe - check post requestbody
 post request - save recipe - 
+
+
+
+
+TABLE CHANGES to recipes -
+country to VARCHAR
+stringredients1-20
+strMeasure1-20
+delete the ingredients column

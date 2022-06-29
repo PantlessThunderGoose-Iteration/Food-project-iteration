@@ -6,7 +6,7 @@ const initialValues = {
   strReview: '',
   strUsername: '',
   rating: '',
-};
+}; 
 
 function Recipe({ meal }) {
   //const [meal, setMeal] = useState('')

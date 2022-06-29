@@ -4,6 +4,161 @@ const db = require('../models/sqlmodel');
 
 const mealController = {};
 
+
+
+mealController.getReviews = async (req, res, next) => {
+  console.log(req.body)
+  const {recipeId} = req.body;
+
+  const qStr = `SELECT stars, email FROM reviews WHERE recipe_id=${recipeId};`;
+
+
+db.query(qStr)
+  .then((data) => {
+    res.locals.reviews = data.rows
+    next();
+  })
+  .catch ((err) => {
+    next({
+      log: 'Error in getReviews middleware',
+      status: 400,
+      message: `Error: ${err}`,
+    })
+  })
+
+
+
+// try {
+//   const data = db.query(qStr)
+//   await console.log(data)
+//   res.locals.reviews = data.rows
+//   next();
+// }
+// catch(err) {
+//   return next({
+//     log: 'Error in getReviews middleware',
+//     status: 400,
+//     message: `Error: ${err}`,
+//   })
+// }
+
+
+}
+
+
+mealController.postRecipe = async (req, res, next) =>{
+  //req.body
+  const {name, country_code, ingredients, instructions, reviews_table_id} = req.body;
+  const qStr = `INSERT INTO recipes(name, country, ingredients, instructions)
+    VALUES ('${name}', ${country}, '${ingredients}', '${instructions}');`
+
+  try{
+    db.query(qStr)
+    await next();
+  }
+  catch(err) {
+    return next({
+      log: 'Error in postRecipe middleware',
+      status: 400,
+      message: `Please verify data inputs. Error: ${err}`,
+    })
+  }
+}
+
+
+const obj = {
+  "meals":[
+      {
+        "idMeal":"53015",
+        //"strMeal":"Krispy Kreme Donut",
+        "strDrinkAlternate":null,
+        "strCategory":"Dessert",
+        //"strArea":"American",
+       // "strInstructions":"Dissolve yeast in warm water in 2 1\/2-quart bowl. Add milk, sugar, salt, eggs, shortening and 2 cups flour. Beat on low for 30 seconds, scraping bowl constantly. Beat on medium speed for 2 minutes, scraping bowl occasionally. Stir in remaining flour until smooth. Cover and let rise until double, 50-60 minutes. (Dough is ready when indentation remains when touched.) Turn dough onto floured surface; roll around lightly to coat with flour. Gently roll dough 1\/2-inch thick with floured rolling pin. Cut with floured doughnut cutter. Cover and let rise until double, 30-40 minutes.\r\nHeat vegetable oil in deep fryer to 350\u00b0. Slide doughnuts into hot oil with wide spatula. Turn doughnuts as they rise to the surface. Fry until golden brown, about 1 minute on each side. Remove carefully from oil (do not prick surface); drain. Dip the doughnuts into creamy glaze set on rack.\r\n\r\n\r\nGlaze: \r\nHeat butter until melted. Remove from heat. Stir in powdered sugar and vanilla until smooth. Stir in water, 1 tablespoon at a time, until desired consistency.","strMealThumb":"https:\/\/www.themealdb.com\/images\/media\/meals\/4i5cnx1587672171.jpg",
+        "strTags":null,
+        "strYoutube":"https:\/\/www.youtube.com\/watch?v=SamYg6IUGOI",
+        "strIngredient1":"Yeast",
+        "strIngredient2":"Water",
+        "strIngredient3":"Water",
+        "strIngredient4":"Sugar",
+        "strIngredient5":"Salt",
+        "strIngredient7":"Shortening",
+        "strIngredient8":"Flour",
+        "strIngredient9":"Canola Oil",
+        "strIngredient10":"Milk",
+        "strIngredient11":"Sugar",
+        "strIngredient12":"Vanilla",
+        "strIngredient13":"Boiling Water",
+        "strIngredient14":"Butter",
+        "strIngredient15":"",
+        "strIngredient16":"",
+        "strIngredient17":"",
+        "strIngredient18":"",
+        "strIngredient19":"",
+        "strIngredient20":"",  "strIngredient6":"Eggs",
+     
+        "strMeasure1":"1\/4 ounce",
+        "strMeasure2":"1\/4 cup",
+        "strMeasure3":"1 1\/2 cups ",
+        "strMeasure4":"1\/2 cup ",
+        "strMeasure5":"1 tsp ",
+        "strMeasure6":"2",
+        "strMeasure7":"1\/3 cup",
+        "strMeasure8":"5 drops",
+        "strMeasure9":"Sprinking",
+        "strMeasure10":"1\/2 cup",
+        "strMeasure11":"2 cups ",
+        "strMeasure12":"1 1\/2 cups ",
+        "strMeasure13":"6 tablespoons",
+        "strMeasure14":" 1\/3 cup",
+        "strMeasure15":" ",
+        "strMeasure16":" ",
+        "strMeasure17":" ",
+        "strMeasure18":" ",
+        "strMeasure19":" ",
+        "strMeasure20":" ",
+        "strSource":"https:\/\/www.mythirtyspot.com\/krispy-kreme-copycat-recipe-for\/",
+        "strImageSource":null,
+        "strCreativeCommonsConfirmed":null,
+        "dateModified":null
+      }]
+    }
+
+
+
+
+
+
+
+
+// db.query(queryStr)
+//         .then(() => {
+//             res.locals.newEvent = data;
+//             return next();
+//         }).catch(err => {
+//             return next({
+//                 log: 'Error in create event middleware',
+//                 status: 400,
+//                 message: 'Please verify data input are correct type.',
+//             });
+//         })
+
+
+
+// CREATE TABLE recipes(
+//   id SERIAL PRIMARY KEY,
+//   name VARCHAR,
+//   country_code INT,
+//   ingredients VARCHAR,
+//   instructions VARCHAR,
+//   reviews_table_id VARCHAR
+//   )
+
+
+
+
+
+
 mealController.createRecipe = async (req, res, next) => {
 
   //query command
@@ -28,6 +183,7 @@ mealController.createRecipe = async (req, res, next) => {
   }
 };
 
+//post review set up
 mealController.postReview = async (req, res, next) => {
   console.log('review received')
   const { strReview, strUsername, rating, recipeId } = req.body;
