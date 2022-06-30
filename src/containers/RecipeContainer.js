@@ -33,7 +33,7 @@ function Recipe({ meal }) {
                         <img
                             className='recipePic'
                             src={meal.strMealThumb}
-                            alt='recipePic'
+                            alt='No Recipe Selected'
                         />
                         <div id='instructions'>
                             <strong>Instructions: </strong>

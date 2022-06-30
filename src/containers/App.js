@@ -166,9 +166,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Link to='/'>
-        <button id='btn1' onClick={() => recipePage(meal, setMeal)}>Get Random Culture</button>
-      </Link>
+      <Link to='/'><button id='btn1' onClick={() => recipePage(meal, setMeal)}>Get Random Culture</button></Link>
       <Link to='/recipe'><button id='btn2'>Get Recipe from this Culture</button></Link>
       <Link to='/userrecipe'><button id='btn3'>Write recipe</button></Link>
       <Routes>

@@ -112,7 +112,9 @@ const ReviewContainer = (props) => {
             {/* change to span */}
             <span id="reviewList">
                 <h3>Reviews:</h3>
+                <div id = "reviewCardBox">
                 {renderReviews}
+                </div>
             </span>
         </div>
     )
