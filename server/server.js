@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));  // change to false? 
 
 //route handler
-app.use('/api', apiRouter)
+app.use('/', apiRouter)
 
 // app.use(express.static(path.resolve(__dirname, '../src')));
 app.use(express.static(path.resolve(__dirname, './build/static')));

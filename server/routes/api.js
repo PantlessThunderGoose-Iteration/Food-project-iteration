@@ -17,7 +17,7 @@ router.post('/postRecipe', mealController.postRecipe, (req, res)=>{
 
 //set up
 router.post('/postReview', mealController.postReview, (req, res) =>{
-    return res.status(200).json("Post request successful");
+    return res.status(200).json("Post comment successful");
   });
 
 

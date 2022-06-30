@@ -7,10 +7,10 @@ const mealController = {};
 
 
 mealController.getReviews = (req, res, next) => {
-  console.log(req.body)
-  const {recipeId} = req.body;
+  console.log(req)
+  const {recipeId} = req.query;
 
-  const qStr = `SELECT stars, email, comments FROM reviews WHERE recipe_id=${recipeId};`;
+  const qStr = `SELECT stars, email, comments, username FROM reviews WHERE recipe_id=${recipeId};`;
 
 db.query(qStr)
   .then((data) => {
@@ -28,13 +28,12 @@ db.query(qStr)
 }
 
 mealController.postReview = (req, res, next) => {
-  const {strUsername, rating, strReview, recipeId} = req.body;
+  const {username, stars, comments, recipe_id} = req.body;
+  console.log(req.body)
 
   const qStr = `INSERT INTO reviews (stars, comments, username, recipe_id)
-  VALUES (${rating}, '${strReview}', '${strUsername}', ${recipeId});`
+  VALUES (${stars}, '${comments}', '${username}', ${recipe_id});`
 
-
-console.log(strUsername);
 
   db.query(qStr)
     .then((data) => {
