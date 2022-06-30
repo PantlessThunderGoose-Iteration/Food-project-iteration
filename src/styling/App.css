@@ -77,3 +77,13 @@ margin-left: 5%;
   border: 3px solid rgb(176, 148, 112);
   border-radius: 6px;
 }
+#btn4 {
+  background-color: rgb(251, 250, 249);
+  color: rgb(176, 148, 112);
+  padding: 10px 10px;
+  font-size: 20px; 
+  margin-left: 5%;
+  font-weight: bold;
+  border: 3px solid rgb(176, 148, 112);
+  border-radius: 6px;
+}

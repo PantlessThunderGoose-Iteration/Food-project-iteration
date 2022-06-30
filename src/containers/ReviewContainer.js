@@ -19,14 +19,13 @@ const ReviewContainer = (props) => {
     const [reviews, setReviews] = useState([]);
     const recipeId = props.meal.idMeal;
 
-    // object for request body (we only want to get reviews for the specific recipe on the page)
-    // const getRecipeObj = { recipeId: props.meal.idMeal };
-
     // use effect will trigger when the component mounts.
     // it will grab the reviews from the database and update the reviews state
     useEffect(() => {
+        // need to make the fetchData function async to ensure we complete the get request before executing other code
         async function fetchData () {
             try{
+                // send fetch with meal id in the req.query obj
                 let data = await fetch('http://localhost:8080/getReviews?'+ new URLSearchParams({recipeId: props.meal.idMeal}));
                 const test = await data.json();
                 console.log(test)
@@ -35,17 +34,9 @@ const ReviewContainer = (props) => {
             catch(err){
                 console.log(err)
             }
-        //     .then((data) => data.json())
-        //     .then((data) => {
-        //         console.log(data);
-        //         setReviews(data);// reviews = [] => [{review1},{review2}]
-        //         console.log(reviews)
-        //     })
-        //     .catch((error) => console.log(error));
         }
-
+        // update reviews state to include the fetched reviews
         fetchData().then(data => setReviews(data))
-        
     }, []);
 
     //declare an empty object for the review keys and inputfield values to be set as a key value pair

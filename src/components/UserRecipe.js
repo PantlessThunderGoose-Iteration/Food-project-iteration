@@ -1,41 +1,48 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
-const initialValues = {
-  strReview: "",
-  strUsername: "",
-  rating: "",
-};
 
-function UserRecipe() {
-  // const [review, username, ratings] = useState('');
-  //   const [fetchedData, setfetchedData] = useState([]);
-  //   const [values, setValues] = useState(initialValues);
+function UserRecipe({recipes, setRecipes}) {
+ 
+  let userRecipe = {}
+    // update userRecipe when user enters credentials
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        userRecipe = ({ ...userRecipe, [name]: value });
+    };
+
+    // when user signs up, post recipe to database
+    const handleRecipeSumbmit = (e) => {
+        fetch('http://localhost:8080/recipe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userRecipe)
+        })
+            .then((data) => data.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.log(error));
+
+        setRecipes([...recipes, userRecipe])
+    };
 
   return (
     <div className="userRecipe">
-      <header className="userRecipe-header">
-        {/* <div id="todaysRecipe2">
-          <h1> Today's Recipe:</h1>
-        </div> */}
-      </header>
-      <div id="recipeBox">
+      <div>
         <h3>My Recipe: </h3>
         <form>
+          <label>Title: </label>
+          <input type="text" name="title" onChange={handleInputChange}/>
           <label>Culture: </label>
-          <input type="text" name="strUsername" />
+          <input type="text" name="culture" onChange={handleInputChange}/>
           <label>Ingredients: </label>
-          <input type="text" name="strUsername" />
+          <input type="text" name="ingredients" onChange={handleInputChange}/>
           <label>Instructions: </label>
-          <input type="text" name="strReview" />
+          <input type="text" name="instructions" onChange={handleInputChange}/>
           <br />
-          <label>Notes: </label>
-          <input type="text" name="rating" />
           <br />
-          <label>Picture: </label>
-          <button id="uploadbtn">Upload Picture</button>
-          <br />
-          <button id="submitbtn">Submit Recipe</button>
+          <button id="submitbtn" onClick={handleRecipeSumbmit}>Submit Recipe</button>
         </form>
       </div>
     </div>

@@ -8,13 +8,15 @@ import { useState } from "react";
 import "../styling/App.css";
 import Recipe from "./RecipeContainer";
 import Main from "../components/Main.js";
-import UserRecipe from "../components/UserRecipe.js";
+// import UserRecipe from "../components/UserRecipe.js";
 import Login from "./LoginContainer";
+import Profile from "./ProfileContainer";
 import { recipePage } from '../handlers/handlers';
 
 function App() {
   const [meal, setMeal] = useState("");
   const [country] = useState("");
+  const [recipes, setRecipes] = useState([]);
 
   console.log(country);
 
@@ -172,11 +174,12 @@ function App() {
         <button id='btn1' onClick={() => recipePage(meal, setMeal)}>Get Random Culture</button>
       </Link>
       <Link to='/recipe'><button id='btn2'>Get Recipe from this Culture</button></Link>
-      <Link to='/login'><button id='btn3'>Sign Up / Login</button></Link>
+      <Link to='/profile'><button id='btn3'>Profile</button></Link>
+      <Link to='/login'><button id='btn4'>Sign Up / Login</button></Link>
       <Routes>
         <Route path="/" element={<Main recipePage={recipePage} meal={meal} info={info} />} />
-
-        <Route path="/recipe" element={<Recipe meal={meal} />} />
+        <Route path="/recipe" element={<Recipe meal={meal} recipes={recipes} setRecipes={setRecipes}/>} />
+        <Route path="/profile" element={<Profile recipes={recipes} setRecipes={setRecipes}/>} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </div>
