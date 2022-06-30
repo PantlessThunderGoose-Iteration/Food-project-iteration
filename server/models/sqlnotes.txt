@@ -9,6 +9,7 @@ comments VARCHAR,
 user_id INT,
 recipe_id INT.
 email VARCHAR
+username VARCHAR
 )
 
 CREATE TABLE recipe_book(
@@ -19,11 +20,12 @@ recipe_id INT
 CREATE TABLE recipes(
 id SERIAL PRIMARY KEY,
 name VARCHAR,
-country_code INT,
+country INT,
 ingredients VARCHAR,
 instructions VARCHAR,
 reviews_table_id VARCHAR
 )
+
 
 CREATE TABLE users (
 	user_id SERIAL PRIMARY KEY,

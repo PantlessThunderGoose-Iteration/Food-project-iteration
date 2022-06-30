@@ -15,8 +15,17 @@ router.post('/postRecipe', mealController.postRecipe, (req, res)=>{
     return res.status(200).json("recipe is saved in the database");
 })
 
+//set up
+router.post('/postReview', mealController.postReview, (req, res) =>{
+    return res.status(200).json("Post request successful");
+  });
 
 
+
+
+
+
+  
 
 router.get('/review',mealController.getReview, (req, res) => {
  return res.status(200).json(res.locals.getReview);
@@ -26,10 +35,7 @@ router.post('/userRecipes', mealController.createRecipe, (req,res) =>{
     return res.status(200).json(res.locals.userRecipes);
 });
 
-//set up
-router.post('/review', mealController.postReview, (req, res) =>{
-  return res.status(200).json(res.locals.userReview);
-});
+
 
 //update //update recipe instead?
 router.patch('/review/:id', mealController.updateReview,  (req,res) => {
