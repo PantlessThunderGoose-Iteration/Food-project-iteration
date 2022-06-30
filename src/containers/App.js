@@ -8,45 +8,15 @@ import { useState } from "react";
 import "../styling/App.css";
 import Recipe from "./RecipeContainer";
 import Main from "../components/Main.js";
-import UserRecipe from "../components/UserRecipe.js"
-import { recipePage } from '../handlers/handlers'
+import UserRecipe from "../components/UserRecipe.js";
+import Login from "./LoginContainer";
+import { recipePage } from '../handlers/handlers';
 
 function App() {
   const [meal, setMeal] = useState("");
   const [country] = useState("");
 
-
-
-  // const url = 'https://themealdb.com/api/json/v1/1/random.php?a=Croatian';
-
-  // const getArea = () => {
-  //   const areas = ['British', 'American', 'French', 'Canadian', 'Jamaican', 'Chinese', 'Dutch', 'Egyptian', 'Greek', 'Indian', 'Irish', 'Italian', 'Japanese', 'Kenyan', 'Malaysian', 'Mexican', 'Moroccan', 'Croatian', 'Norwegian', 'Portuguese', 'Russian', 'Argentinian', 'Spanish', 'Slovakian', 'Thai', 'Arabian', 'Vietnamese', 'Turkish', 'Syrian', 'Algerian', 'Tunisian', 'Polish'];
-  //   // if (data === 'American'){
-  //     const randomCountry = Math.floor(Math.random() * areas.length)
-
-  //     setCountry(areas[randomCountry]);
-  //   // }
-  // }
-
-  // const url = `https://themealdb.com/api/json/v1/1/random.php`;
-  // const url = 'https://themealdb.com/api/json/v1/1/lookup.php?i=52772';
   console.log(country);
-
-  //function to fetch data from MealDB
-  //recipePage(meal, setMeal);
-  // const recipePage = () => {
-  //   fetch(url, { method: "GET" })
-  //     .then((data) => data.json())
-  //     .then((data) => {
-  //       if (data.meals[0].strArea !== "Unknown") {
-  //         console.log(data.meals[0].strMeal);
-  //         setMeal(data.meals[0]);
-  //       }
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
-  // recipePage(meal,setMeal)
 
   let info = "";
   {
@@ -198,34 +168,16 @@ function App() {
   }
   return (
     <div className="App">
-      {/* <p>blah blah blah food dofjakjndfcikjabefkjbawefjh</p> */}
       <Link to='/'>
         <button id='btn1' onClick={() => recipePage(meal, setMeal)}>Get Random Culture</button>
       </Link>
       <Link to='/recipe'><button id='btn2'>Get Recipe from this Culture</button></Link>
-      <Link to='/userrecipe'><button id='btn3'>Write recipe</button></Link>
+      <Link to='/login'><button id='btn3'>Sign Up / Login</button></Link>
       <Routes>
         <Route path="/" element={<Main recipePage={recipePage} meal={meal} info={info} />} />
-        {/* <header className="App-header">
-            <img src="logo.jpg" width="200px" alt="logo"></img>
-            <h1>Food</h1>
-          </header> */}
-        {/* {<>
-          <div>
-            <p>blah blah blah food dofjakjndfcikjabefkjbawefjh</p>
-            <button onClick={recipePage}>Get Random Culture</button>
-          </div>
-          <div>
-            {meal.strArea}
-          </div>
-          <div>
-            <h3>Information on this cultures food:</h3>
-            <p>{info}</p>
-          </div>
-          </>} */}
+
         <Route path="/recipe" element={<Recipe meal={meal} />} />
-        <Route path="/userrecipe" element={<UserRecipe />} />
-        {/* <Recipe /> */}
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
