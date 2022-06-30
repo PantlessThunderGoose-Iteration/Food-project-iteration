@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//postgres://oezogxyo:mtumGeWcgDT8-OSlwgdXseF7jWdSWvtl@heffalump.db.elephantsql.com/oezogxyo
 const MONGO_URI =
   'mongodb+srv://uTravel:kenny@cluster0.4ltk2.mongodb.net/?retryWrites=true&w=majority';
 

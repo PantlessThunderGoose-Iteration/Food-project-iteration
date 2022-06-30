@@ -1,0 +1,33 @@
+our problem was to tackle diversity and cultural challenges in society by creating an app that will randomly choose a country and recipe so that the user could learn about their history and experience their food.
+Technologies Used
+we were able to utilize react router to move to another url and display recipes and post reviews on those recipes using mongodb/mongoose, but were not able to get the post to show right away and when you refresh the page it will no longer be on the same recipe page.
+Features that were completed
+The backend has full CRUD functionality with postman and our react router is working properly.
+Incomplete features, opportunities for codebase improvement, stretch goals
+We were unable to connect the update functionality to the frontend through clicking an update button. Additionally our review post will only display once the page is refreshed. We were attempting to use both an api and mongoDB so they would need to be combined when fetching cultures and recipes.
+Why this is an interesting project to take on
+We utilized outside API to pull data and stored our recipe/review data with Mongodb.
+
+
+modularize;'
+
+front end - 
+switch to SCSS
+refresh so same recipe shows
+adding reviews - rerender
+display ratings - 
+styling
+
+
+
+backend- 
+Switch SQL
+verify routes
+look at update
+using API and SQL
+add ratings and review info in SQL
+
+
+
+
+login - save recipes to personal book - share recipe 

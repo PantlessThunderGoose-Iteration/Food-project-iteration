@@ -17,31 +17,40 @@ import Review from '../components/Review'
 // get meal.idMeal from Recipe
 const ReviewContainer = (props) => {
     const [reviews, setReviews] = useState([]);
+    const recipeId = props.meal.idMeal;
 
     // object for request body (we only want to get reviews for the specific recipe on the page)
-    const getRecipeObj = { recipeId: props.meal.idMeal };
+    // const getRecipeObj = { recipeId: props.meal.idMeal };
 
     // use effect will trigger when the component mounts.
     // it will grab the reviews from the database and update the reviews state
     useEffect(() => {
-        fetch('http://localhost:8080/getReviews', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(getRecipeObj)
-        })
-            .then((data) => data.json())
-            .then((data) => {
-                // console.log(data);
-                setReviews(data);
-            })
-            .catch((error) => console.log(error));
+        async function fetchData () {
+            try{
+                let data = await fetch('http://localhost:8080/getReviews?'+ new URLSearchParams({recipeId: props.meal.idMeal}));
+                const test = await data.json();
+                console.log(test)
+                return test;
+            }
+            catch(err){
+                console.log(err)
+            }
+        //     .then((data) => data.json())
+        //     .then((data) => {
+        //         console.log(data);
+        //         setReviews(data);// reviews = [] => [{review1},{review2}]
+        //         console.log(reviews)
+        //     })
+        //     .catch((error) => console.log(error));
+        }
+
+        fetchData().then(data => setReviews(data))
+        
     }, []);
 
     //declare an empty object for the review keys and inputfield values to be set as a key value pair
     let reviewInputObj = {
-        recipeId: props.meal.idMeal,
+        recipeId: recipeId,
     };
     //Function is run when the input field is changed and adds a key value pair to the empty obj above 
     //which will later be passed to be rendered
@@ -53,7 +62,7 @@ const ReviewContainer = (props) => {
     //handle click function 
     const handleClickSumbmit = (e) => {
         //post the review to DB 
-        fetch('http://localhost:8080/getReviews', {
+        fetch('http://localhost:8080/postReview', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -61,6 +70,7 @@ const ReviewContainer = (props) => {
             body: JSON.stringify(reviewInputObj)
         })
             .then((data) => data.json())
+            .then((data) => console.log(data))
             .catch((error) => console.log(error));
 
         //update the reviews state
@@ -71,7 +81,9 @@ const ReviewContainer = (props) => {
     const renderReviews = [];
     //for loop to go through review state and push a component onto an array to be used to render the posts from the state
     for (let i = 0; i < reviews.length; i++) {
-        renderReviews.push(<Review data={reviews[i]} />)
+        console.log('marker')
+        console.log(reviews[i])
+        renderReviews.push(<Review key={i} data={reviews[i]} />)
     }
 
     return (
@@ -84,20 +96,20 @@ const ReviewContainer = (props) => {
                     <label>Username: </label>
                     <input
                         type='text'
-                        name='strUsername'
+                        name='username'
                         onChange={handleInputChange}
                     />
                     <label>Review: </label>
                     <input
                         type='text'
-                        name='strReview'
+                        name='comments'
                         onChange={handleInputChange}
                     />
                     <br />
                     <label>Rating: </label>
                     <input
                         type='text'
-                        name='rating'
+                        name='stars'
                         onChange={handleInputChange}
                     />
                     <br />
