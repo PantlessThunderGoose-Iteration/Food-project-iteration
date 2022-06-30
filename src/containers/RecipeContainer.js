@@ -2,12 +2,33 @@ import React from 'react';
 import ReviewContainer from './ReviewContainer';
 
 //function recipe passing in the meal state
-function Recipe({ meal }) {
+function Recipe({ meal, recipes, setRecipes }) {
     //declare and empty array and push all the ingredients and measuremnets that dont return null from the meal state
     const newArr = [];
     for (let i = 1; i <= 20; i++) {
         if (meal[`strIngredient${i}`])
             newArr.push(meal[`strMeasure${i}`] + ' ' + meal[`strIngredient${i}`]);
+    }
+
+    const saveRecipeObj = {
+        culture: meal.strArea,
+        recipeName: meal.strMeal,
+        ingredients: newArr,
+        instructions: meal.strInstructions
+    }
+
+    // function for user to save recipe
+    const handleClickSumbmit = (e) => {
+        fetch('http://localhost:8080/userRecipeBook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(saveRecipeObj)
+        })
+            .then((data) => data.json())
+            .then((data) => console.log(data))
+            .catch((error) => console.log(error));
     }
 
     return (
@@ -40,6 +61,9 @@ function Recipe({ meal }) {
                             <br />
                             {meal.strInstructions}
                         </div>
+                        <button id='save-recipe' onClick={handleClickSumbmit}>
+                        Save Recipe to Recipe Book
+                    </button>
                     </div>
 
                     <div id='reviewContainer'>

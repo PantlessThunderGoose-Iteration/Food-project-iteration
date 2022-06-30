@@ -1,0 +1,69 @@
+CREATE TABLE countries(
+id SERIAL PRIMARY KEY,
+country_name varchar
+)
+
+CREATE TABLE reviews(
+stars INT,
+comments VARCHAR,
+user_id INT,
+recipe_id INT.
+email VARCHAR
+username VARCHAR
+)
+
+CREATE TABLE recipe_book(
+id SERIAL PRIMARY KEY,
+recipe_id INT
+)
+
+CREATE TABLE recipes(
+id SERIAL PRIMARY KEY,
+name VARCHAR,
+country INT,
+ingredients VARCHAR,
+instructions VARCHAR,
+reviews_table_id VARCHAR
+)
+
+
+CREATE TABLE users (
+	user_id SERIAL PRIMARY KEY,
+	email VARCHAR ( 50 ) UNIQUE NOT NULL,
+	password VARCHAR ( 50 ) NOT NULL,
+	recipe_book_id INT
+);
+
+
+random recipe reloads - post request to us to save the table- 
+
+-recipes route post request - let them know what data to grab
+
+write recipe - go into personal and 
+
+
+DB testing:
+
+add something, delete it, - delete test successful?
+
+making api get request for the random recipe - check database if saved correctly - delete after
+
+returns error when you add a recipe with an already existing recipe name
+    add recipe twice.
+
+
+
+
+supertest:
+
+post request - to add the recipe - check post requestbody
+post request - save recipe - 
+
+
+
+
+TABLE CHANGES to recipes -
+country to VARCHAR
+stringredients1-20
+strMeasure1-20
+delete the ingredients column

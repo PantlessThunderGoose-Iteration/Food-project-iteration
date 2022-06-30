@@ -2,23 +2,44 @@ const express = require('express');
 const router = express.Router();
 // connect the controller .. require
 
-const mealController = require('../controllers/mealController');
 
-//get
+const mealController = require('../controllers/mealController');
+const sessionController = require('../controllers/sessionController');
+
+//get reviews
+router.get ('/getReviews', mealController.getReviews, (req, res) => {
+    return res.status(200).json(res.locals.reviews)
+})
+
+
+//post request for the database
+router.post('/postRecipe', mealController.postRecipe, (req, res)=>{
+    return res.status(200).json("recipe is saved in the database");
+})
+
+//set up //must be logged in to post comment
+router.post('/postReview', sessionController.isLoggedIn, mealController.postReview, (req, res) =>{
+    return res.status(200).json("Post comment successful");
+  });
+
+//   sessionController.isLoggedIn
+
+
+
+
+  
+
 router.get('/review',mealController.getReview, (req, res) => {
  return res.status(200).json(res.locals.getReview);
 })
 
-//post
 router.post('/userRecipes', mealController.createRecipe, (req,res) =>{
     return res.status(200).json(res.locals.userRecipes);
 });
 
-router.post('/review', mealController.postReview, (req, res) =>{
-  return res.status(200).json(res.locals.userReview);
-});
 
-//update
+
+//update //update recipe instead?
 router.patch('/review/:id', mealController.updateReview,  (req,res) => {
     return res.status(200).json(res.locals.updatedReview)
 })
