@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 // connect the controller .. require
 
+
 const mealController = require('../controllers/mealController');
+const sessionController = require('../controllers/sessionController');
 
 //get reviews
 router.get ('/getReviews', mealController.getReviews, (req, res) => {
@@ -15,12 +17,12 @@ router.post('/postRecipe', mealController.postRecipe, (req, res)=>{
     return res.status(200).json("recipe is saved in the database");
 })
 
-//set up
-router.post('/postReview', mealController.postReview, (req, res) =>{
+//set up //must be logged in to post comment
+router.post('/postReview', sessionController.isLoggedIn, mealController.postReview, (req, res) =>{
     return res.status(200).json("Post comment successful");
   });
 
-
+//   sessionController.isLoggedIn
 
 
 
