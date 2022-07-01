@@ -367,26 +367,41 @@ body {
           width: 65%;
           float: right;
           margin: 25px;
-          margin-top: -560px;
+          margin-top: -530px;
 
-        }
+        
         #profileContainer{
             display:flex;
             flex-wrap: wrap;
             flex-direction: row;
             align-items: center;
             justify-content: space-around;
+            margin: auto;
+        }
             #recipeCard{
+                border: $border-medium;
                 margin:6px;
-                border: $border-white;
+                border: $border-medium;
                 color:$color-dark;
                 border-radius: $border-radius-thick;
                 background-color: $color-light;
                 padding: 10px 10px;
-                width:23%;
+                width:85%;
+                #recipeName{
+                    color:$color-white;
+                    background-color:$color-medium;
+                }
+                #culture{
+                    color:$color-white
+                }
+                #ingredients{
+                    width:80%
+
+                }
     
             }
-        }
+        
+     }
         .login-container{
             width:48%;
             background-color: $color-medium;
