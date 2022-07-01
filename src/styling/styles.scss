@@ -6,7 +6,7 @@ $background-gradient3: rgb(248, 215, 137);
 $background-gradient4: rgb(226, 137, 211);
 //they only had 2 colors white and brown 
 $color-dark: rgb(253, 179, 42);
-$color-medium: rgb(255, 221, 158);
+$color-medium: rgb(255, 214, 138);
 $color-light:rgb(254, 241, 218);
 $color-white:rgb(250, 246, 240);
 //add border variable to pass in 
@@ -361,7 +361,7 @@ body {
           font-weight: bold;
           color: $color-white;
           border: $border-white;
-          background-color: $color-dark;
+          background-color: $color-medium;
           padding: 10px 10px;
           border-radius: $border-radius-thick;
           width: 65%;
@@ -375,27 +375,31 @@ body {
             flex-wrap: wrap;
             flex-direction: row;
             align-items: center;
-            justify-content: space-around;
+            justify-content: center;
             margin: auto;
         }
             #recipeCard{
-                border: $border-medium;
+                border: $border-dark;
                 margin:6px;
-                border: $border-medium;
                 color:$color-dark;
                 border-radius: $border-radius-thick;
                 background-color: $color-light;
                 padding: 10px 10px;
                 width:85%;
+                align-items: center;
+                justify-content: center;
+                margin: auto;
                 #recipeName{
                     color:$color-white;
                     background-color:$color-medium;
+                    margin: 2px;
                 }
                 #culture{
                     color:$color-white
                 }
                 #ingredients{
-                    width:80%
+                    width:80%;
+
 
                 }
     
