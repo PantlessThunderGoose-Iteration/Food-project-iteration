@@ -61,9 +61,9 @@ function Recipe({ meal, recipes, setRecipes }) {
                             <br />
                             {meal.strInstructions}
                         </div>
-                        <button id='save-recipe' onClick={handleClickSumbmit}>
-                        Save Recipe to Recipe Book
-                    </button>
+                        <div id = "saveRecipe">
+                        <button id='save-recipe' onClick={handleClickSumbmit}>Save Recipe to Recipe Book</button>
+                        </div>
                     </div>
 
                     <div id='reviewContainer'>

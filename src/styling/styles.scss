@@ -302,32 +302,17 @@ body {
             flex-direction: row;
         
         #reviewCard{
+            margin:6px;
             border: $border-white;
+            color:$color-dark;
             border-radius: $border-radius-thick;
-            background-color: $color-dark;
+            background-color: $color-light;
             padding: 10px 10px;
             width:23%;
 
         }
       }
     }
-        
-        #reviews{
-          font-size: 15px;
-          font-weight: bold;
-          color: $color-white;
-          display: inline-block;
-          flex-direction: row;
-          align-items: left;
-          justify-content: center;
-          border: $border-white;
-          background-color: $color-dark;
-          border-radius: $border-radius-thick;
-          width: 40%;
-          margin-left: 5%;
-        
-        }
-        
         #submitbtn {
           background-color: $color-white;
           color: $color-dark;
@@ -339,6 +324,118 @@ body {
           border-radius: $border-radius-thin;
           margin-top: 4%;
         }
+
+        #saveRecipe{
+            padding: 10px 10px;
+        }
+
+        #userRecipeContainer{
+            background-color: $color-light;
+            border:$border-dark;
+            border-radius: $border-radius-thick;
+            width: 20%;
+            padding: 10px 10px;
+            float:center;
+            margin: 25px;
+            text-align: center;
+            h3{
+                background-color: $color-dark;
+                color:$color-white;
+                border:$border-dark;
+            }
+            #userRecipe{
+                color: $color-dark;
+                font-size: 25px;
+                font-weight: bold;
+                padding: 10px 10px;
+                //float: left;
+    
+            }
+            #submitbtn{
+                background-color: $color-dark;
+                color:$color-white;
+            }
+        }
+        #profileList{
+          font-size: 25px;
+          font-weight: bold;
+          color: $color-white;
+          border: $border-white;
+          background-color: $color-dark;
+          padding: 10px 10px;
+          border-radius: $border-radius-thick;
+          width: 65%;
+          float: right;
+          margin: 25px;
+          margin-top: -560px;
+
+        }
+        #profileContainer{
+            display:flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            #recipeCard{
+                margin:6px;
+                border: $border-white;
+                color:$color-dark;
+                border-radius: $border-radius-thick;
+                background-color: $color-light;
+                padding: 10px 10px;
+                width:23%;
+    
+            }
+        }
+        .login-container{
+            width:48%;
+            background-color: $color-medium;
+            border: $border-light;
+            border-radius: $border-radius-thick;
+            margin: auto;
+            display: flex;
+            margin-top:2%;
+            //align-items: center;
+            justify-content: space-around;
+            padding: 20px 10px;
+
+            .sign-up{
+                h3{
+                    background:$color-dark;
+                    color:$color-white;
+                }
+                background-color: $color-light;
+                border:$border-dark;
+                border-radius:$border-radius-thick;
+                padding:10px 10px;
+                font-size: 25px;
+                font-weight: bold;
+                color: $color-dark;
+                width:38%;
+
+            }
+            .login{
+                h3{
+                    background:$color-dark;
+                    color:$color-white;
+                }
+                background-color: $color-light;
+                border:$border-dark;
+                border-radius:$border-radius-thick;
+                padding:8px 10px;
+                font-size: 25px;
+                font-weight: bold;
+                color: $color-dark;
+                width:38%;
+            }
+            #submitbtn{
+                background-color: $color-dark;
+                color:$color-white;
+            }
+           
+        }
+
+        
         
         
           
