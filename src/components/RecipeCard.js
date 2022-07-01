@@ -4,9 +4,12 @@ function RecipeCard ({recipe}) {
     
 
     return(
-        <div className='recipeCard'>
-            <h2 id='recipeName'>{recipe.recipeName}</h2>
-            <h2 id='culture'>{recipe.culture}</h2>
+        <div id='recipeCard'>
+            <h2 id='recipeName'>{recipe.recipename}</h2>
+            <div>
+
+            <h3 id='culture'>{recipe.culture}</h3>
+            </div>
             <div className='RecipeContent'>
                 <br />
                 <div>
