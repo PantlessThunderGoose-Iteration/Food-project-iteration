@@ -41,7 +41,7 @@ function UserRecipe({recipes, setRecipes}) {
       <div id= "userRecipe">
         <form>
           <label>Title: </label>
-          <input type="text" name="recipeName" onChange={handleInputChange}/>
+          <input type="text" name="recipename" onChange={handleInputChange}/>
           <label>Culture: </label>
           <input type="text" name="culture" onChange={handleInputChange}/>
           <label>Ingredients: </label>

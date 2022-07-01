@@ -15,8 +15,8 @@ cookieController.setSSIDCookie = (req, res, next) => {
     //   maxAge: 300,
     //   httpOnly: true,
     // });
-    console.log(res)
-    console.log(res.cookie.ssid)
+    // console.log(res)
+    // console.log(res.cookie)
     return next();
 
 
