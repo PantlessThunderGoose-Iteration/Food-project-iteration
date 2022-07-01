@@ -1,5 +1,5 @@
 const cookieController = {};
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 
 cookieController.setSSIDCookie = (req, res, next) => {
     // console.log(req.body.username);
@@ -9,13 +9,19 @@ cookieController.setSSIDCookie = (req, res, next) => {
     // });
   
     // console.log(res.locals.objectId);
-  
-    res.cookie('ssid', res.locals.userId, { //ssid: res.locals.userId;
-      maxAge: 300,
-      httpOnly: true,
-    });
-  
+    res.cookie('ssid', 'hi')
+    
+    // { //ssid: res.locals.userId;
+    //   maxAge: 300,
+    //   httpOnly: true,
+    // });
+    console.log(res)
+    console.log(res.cookie.ssid)
     return next();
+
+
+
+
   };
 
   module.exports = cookieController;

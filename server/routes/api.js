@@ -24,7 +24,13 @@ router.post('/postReview', sessionController.isLoggedIn, mealController.postRevi
 
 //   sessionController.isLoggedIn
 
+router.post('/saveRecipe', mealController.saveRecipe, (req, res) => {
+    return res.status(200).json("Recipe saved!");
+})
 
+router.get('/getRecipes', mealController.getRecipes, (req, res) => {
+    return res.status(200).json(res.locals.recipe);
+})
 
 
   

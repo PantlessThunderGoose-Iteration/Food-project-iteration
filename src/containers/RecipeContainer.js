@@ -13,13 +13,13 @@ function Recipe({ meal, recipes, setRecipes }) {
     const saveRecipeObj = {
         culture: meal.strArea,
         recipeName: meal.strMeal,
-        ingredients: newArr,
+        ingredients: newArr.toString(),
         instructions: meal.strInstructions
     }
 
     // function for user to save recipe
     const handleClickSumbmit = (e) => {
-        fetch('http://localhost:8080/userRecipeBook', {
+        fetch('http://localhost:8080/saveRecipe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
