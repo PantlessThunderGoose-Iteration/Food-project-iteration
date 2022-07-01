@@ -1,0 +1,446 @@
+
+//need 4 colors for the back ground gradient
+$background-gradient1: rgb(254, 242, 203);
+$background-gradient2: rgb(239, 217, 166);
+$background-gradient3: rgb(248, 215, 137);
+$background-gradient4: rgb(226, 137, 211);
+//they only had 2 colors white and brown 
+$color-dark: rgb(253, 179, 42);
+$color-medium: rgb(255, 221, 158);
+$color-light:rgb(254, 241, 218);
+$color-white:rgb(250, 246, 240);
+//add border variable to pass in 
+$border-radius-thin: 6px;
+$border-radius-thick: 10px;
+$border-light: 2px solid $color-light;
+$border-white:2px solid $color-white;
+$border-medium: 2px solid $color-medium;
+$border-dark:3px solid $color-dark;
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(-45deg, $background-gradient1, $background-gradient2, $background-gradient3, $background-gradient4 );
+    background-size: 500% 500%;
+    animation: gradient 10s ease infinite;
+    @keyframes gradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+    }
+
+    img{
+        max-width: 12%;
+    }
+
+    imgContainer{
+        display: table;
+        margin: 0 auto;
+    }
+    
+    #head{
+        position: relative;
+        top: -50px;
+        border: 2px solid $color-dark;
+        color: $color-dark;
+        background-color: $color-light;
+        border-radius: $border-radius-thick;
+        padding: 10px 10px;
+        text-align: center;
+        font-size: 50px;
+
+    }
+
+    .App {
+        text-align: center;
+        button{
+            background-color:$color-light;
+            color:$color-dark;
+            margin-left: 5%;
+            padding: 10px 10px;
+            font-size: 20px;
+            font-weight: bold;
+            border: $border-dark;
+            border-radius: $border-radius-thin;
+            margin-top: 2%;
+
+        }
+              #cultureName {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 2%;
+            color:$color-light;
+            display: inline-block;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border: $border-medium;
+            background-color: $color-dark;
+            padding: 12px 12px;
+            border-radius: $border-radius-thick;
+          
+           
+          }
+          #infoHeader{
+              text-align: center;
+          }
+          h3{
+            display: inline-block;
+            font-size: 30px;
+            font-weight: bold;
+            color: $color-dark; 
+            text-decoration: underline;
+            padding: 10px 10px;
+            border: $border-medium;
+            border-radius: $border-radius-thick;
+            background-color:$color-light;
+          }
+          
+          #cultureInfo {
+            color: $color-dark;; 
+            font-size: 23px;
+            width: 80%;
+            display: inline-block;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid $color-dark;;
+            background-color: rgb(255, 255, 255);
+            padding: 12px 12px;
+            border-radius: $border-radius-thick;
+            white-space: pre-wrap;
+            text-align: left;
+          }
+          #instructions {
+            color: $color-dark;; 
+            font-size: 20px;
+            width: 70%;
+            display: inline-block;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid $color-dark;
+            border-radius: $border-radius-thick;
+            background-color: rgb(255, 255, 255);
+            padding: 12px 12px;
+            margin-top: 2%;
+            white-space: pre-wrap;
+            text-align: left;
+          }
+          .recipePic {
+            max-width: 25%;
+            margin-left: 5%;
+            border: $border-dark;
+            border-radius: 20px;
+          }
+          #ingredients {
+            color: $color-dark; 
+            font-size: 20px;
+            width: 30%;
+            display: inline-block;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid $color-dark;
+            border-radius: $border-radius-thick;
+            background-color: rgb(255, 255, 255);
+            padding: 12px 12px;
+            text-align: left;
+            margin-left: 5%;
+            /* height: 50%; */
+          }
+          #everything {
+            display: inline-block;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            border: 4px solid $color-white;
+            border-radius: $border-radius-thick; 
+            margin-top: 2%;
+            background-color: $color-medium;
+           
+          }
+          #todaysRecipe {
+            border: $border-white;
+            border-radius: $border-radius-thick;
+            background-color: $color-dark;
+            padding: 10px 10px;
+            margin: 1rem auto;
+            text-decoration: underline;
+            text-align: center;
+            width: 50%;
+            color: $color-white;
+            font-size: 40px;
+          }
+          #recipeName {
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 2%;
+            color: $color-white;
+            display: inline-block;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border: $border-white;
+            background-color: $color-dark;
+            padding: 12px 12px;
+            border-radius: $border-radius-thick;
+          }
+          
+          #culture {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 2%;
+            color: $color-white;
+            display: inline-block;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border: $border-white;
+            background-color: $color-dark;
+            padding: 12px 12px;
+            border-radius: $border-radius-thick;
+          }
+          form{
+            padding: 10px;
+            margin-bottom: 10px;
+          }
+          
+          
+          #todaysRecipe2 {
+              margin: 1rem auto;
+              text-decoration: underline;
+              padding: 10px 10px;
+              /* border-bottom: white solid 1px; */
+              text-align: center;
+              width: 50%;
+              color: $color-white;
+              font-size: 22px;
+            }
+            
+            #recipeBox {
+                font-size: 25px;
+            font-weight: bold;
+            color: $color-white;
+            display: inline-block;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border: $border-white;
+            background-color: $color-dark;
+            border-radius: $border-radius-thick;
+            width: 21%;
+            margin-top: 2%;
+            
+        }
+        
+          #uploadbtn {
+            border: $border-white;
+            background-color: $color-dark;
+            border-radius: $border-radius-thin;
+            color: $color-white;
+        }
+        
+        #reviewBox{
+            color: $color-dark;
+            border: 2px solid $color-dark;
+            border-radius: $border-radius-thick;
+            background-color: rgb(255, 255, 255);
+            padding: 15px 15px;
+            width: 70%;
+            display: inline-block;
+            align-items: center;
+            justify-content: space-around;
+
+          
+         #reviewInput {
+          font-size: 25px;
+          font-weight: bold;
+          //margin-top: 2%;
+          color: $color-white;
+          //flex-direction: row;
+          //align-items: left;
+          //justify-content: center;
+          border: $border-white;
+          background-color: $color-dark;
+          padding: 10px 10px;
+          border-radius: $border-radius-thick;
+          width: 20%;
+          float: left;
+         
+        }
+        #reviewList{
+            font-size: 25px;
+          font-weight: bold;
+          //margin-top: 2%;
+          color: $color-white;
+          //flex-direction: row;
+          //align-items: left;
+          //justify-content: center;
+          border: $border-white;
+          background-color: $color-dark;
+          padding: 10px 10px;
+          border-radius: $border-radius-thick;
+          width: 73%;
+          float: left;
+
+        }
+        #reviewCardBox{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        
+        #reviewCard{
+            margin:6px;
+            border: $border-white;
+            color:$color-dark;
+            border-radius: $border-radius-thick;
+            background-color: $color-light;
+            padding: 10px 10px;
+            width:23%;
+
+        }
+      }
+    }
+        #submitbtn {
+          background-color: $color-white;
+          color: $color-dark;
+          padding: 5px 10px;
+          font-size: 17px; 
+          margin-left: 5%;
+          font-weight: bold;
+          border: $border-dark;
+          border-radius: $border-radius-thin;
+          margin-top: 4%;
+        }
+
+        #saveRecipe{
+            padding: 10px 10px;
+        }
+
+        #userRecipeContainer{
+            background-color: $color-light;
+            border:$border-dark;
+            border-radius: $border-radius-thick;
+            width: 20%;
+            padding: 10px 10px;
+            float:center;
+            margin: 25px;
+            text-align: center;
+            h3{
+                background-color: $color-dark;
+                color:$color-white;
+                border:$border-dark;
+            }
+            #userRecipe{
+                color: $color-dark;
+                font-size: 25px;
+                font-weight: bold;
+                padding: 10px 10px;
+                //float: left;
+    
+            }
+            #submitbtn{
+                background-color: $color-dark;
+                color:$color-white;
+            }
+        }
+        #profileList{
+          font-size: 25px;
+          font-weight: bold;
+          color: $color-white;
+          border: $border-white;
+          background-color: $color-dark;
+          padding: 10px 10px;
+          border-radius: $border-radius-thick;
+          width: 65%;
+          float: right;
+          margin: 25px;
+          margin-top: -560px;
+
+        }
+        #profileContainer{
+            display:flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            #recipeCard{
+                margin:6px;
+                border: $border-white;
+                color:$color-dark;
+                border-radius: $border-radius-thick;
+                background-color: $color-light;
+                padding: 10px 10px;
+                width:23%;
+    
+            }
+        }
+        .login-container{
+            width:48%;
+            background-color: $color-medium;
+            border: $border-light;
+            border-radius: $border-radius-thick;
+            margin: auto;
+            display: flex;
+            margin-top:2%;
+            //align-items: center;
+            justify-content: space-around;
+            padding: 20px 10px;
+
+            .sign-up{
+                h3{
+                    background:$color-dark;
+                    color:$color-white;
+                }
+                background-color: $color-light;
+                border:$border-dark;
+                border-radius:$border-radius-thick;
+                padding:10px 10px;
+                font-size: 25px;
+                font-weight: bold;
+                color: $color-dark;
+                width:38%;
+
+            }
+            .login{
+                h3{
+                    background:$color-dark;
+                    color:$color-white;
+                }
+                background-color: $color-light;
+                border:$border-dark;
+                border-radius:$border-radius-thick;
+                padding:8px 10px;
+                font-size: 25px;
+                font-weight: bold;
+                color: $color-dark;
+                width:38%;
+            }
+            #submitbtn{
+                background-color: $color-dark;
+                color:$color-white;
+            }
+           
+        }
+
+        
+        
+        
+          
+      }
+       
+      
+}
+    

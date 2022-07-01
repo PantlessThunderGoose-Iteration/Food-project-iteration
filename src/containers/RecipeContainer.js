@@ -54,16 +54,16 @@ function Recipe({ meal, recipes, setRecipes }) {
                         <img
                             className='recipePic'
                             src={meal.strMealThumb}
-                            alt='recipePic'
+                            alt='No Recipe Selected'
                         />
                         <div id='instructions'>
                             <strong>Instructions: </strong>
                             <br />
                             {meal.strInstructions}
                         </div>
-                        <button id='save-recipe' onClick={handleClickSumbmit}>
-                        Save Recipe to Recipe Book
-                    </button>
+                        <div id = "saveRecipe">
+                        <button id='save-recipe' onClick={handleClickSumbmit}>Save Recipe to Recipe Book</button>
+                        </div>
                     </div>
 
                     <div id='reviewContainer'>

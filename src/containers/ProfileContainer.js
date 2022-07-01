@@ -32,15 +32,20 @@ function Profile ({recipes, setRecipes}) {
     }
 
     return(
-        <div className='profile-container'>
+        <div id='profile-container'>
             <span>
-                <h3>Create a Recipe</h3>
+
                 <UserRecipe recipes={recipes} setRecipes={setRecipes}/>
             </span>
-            <span>
-                <h3>Your Recipe Book</h3>
-                {renderRecipes}
-            </span>
+            <div>
+                <span id = "profileList">
+                    <h3>Your Recipe Book</h3>
+                    <div id = "recipeBook">
+                    {renderRecipes}
+                    </div>
+                </span>
+            </div>
+
         </div>
     )
 }

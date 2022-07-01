@@ -28,18 +28,26 @@ function UserRecipe({recipes, setRecipes}) {
     };
 
   return (
-    <div className="userRecipe">
-      <div>
+    <div id="userRecipeContainer">
         <h3>My Recipe: </h3>
+      <div id= "userRecipe">
         <form>
-          <label>Title: </label>
-          <input type="text" name="title" onChange={handleInputChange}/>
-          <label>Culture: </label>
-          <input type="text" name="culture" onChange={handleInputChange}/>
-          <label>Ingredients: </label>
-          <input type="text" name="ingredients" onChange={handleInputChange}/>
-          <label>Instructions: </label>
-          <input type="text" name="instructions" onChange={handleInputChange}/>
+          <div>
+            <label>Title: </label>
+            <input type="text" name="title" onChange={handleInputChange}/>
+          </div>
+          <div>
+            <label>Culture: </label>
+            <input type="text" name="culture" onChange={handleInputChange}/>
+          </div>
+          <div>
+            <label>Ingredients: </label>
+            <input type="text" name="ingredients" onChange={handleInputChange}/>
+          </div>
+          <div>
+            <label>Instructions: </label>
+            <input type="text" name="instructions" onChange={handleInputChange}/>
+          </div>
           <br />
           <br />
           <button id="submitbtn" onClick={handleRecipeSumbmit}>Submit Recipe</button>

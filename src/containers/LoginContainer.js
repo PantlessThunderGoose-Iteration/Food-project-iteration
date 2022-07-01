@@ -67,9 +67,7 @@ function Login () {
                             onChange={handleInputChange}
                         />
                     </div>
-                    <button id='submitbtn' onClick={handleSignUpSumbmit}>
-                        Submit
-                    </button>
+                    <button id='submitbtn' onClick={handleSignUpSumbmit}>Submit</button>
                 </div>
             </span>
             <span className="login">
@@ -91,9 +89,7 @@ function Login () {
                             onChange={handleInputChange}
                         />
                     </div>
-                    <button id='submitbtn' onClick={handleLoginSumbmit}>
-                        Submit
-                    </button>
+                    <button id='submitbtn' onClick={handleLoginSumbmit}>Submit</button>
                 </div>
             </span>
         </div>
