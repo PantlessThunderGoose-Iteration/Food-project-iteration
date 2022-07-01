@@ -5,7 +5,7 @@ function RecipeCard ({recipe}) {
 
     return(
         <div className='recipeCard'>
-            <h2 id='recipeName'>{recipe.strMeal}</h2>
+            <h2 id='recipeName'>{recipe.recipeName}</h2>
             <h2 id='culture'>{recipe.culture}</h2>
             <div className='RecipeContent'>
                 <br />
@@ -17,7 +17,7 @@ function RecipeCard ({recipe}) {
                     <div id='instructions'>
                         <strong>Instructions: </strong>
                         <br />
-                        {recipe.strInstructions}
+                        {recipe.instructions}
                     </div>
                 </div>
             </div>

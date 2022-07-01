@@ -5,6 +5,56 @@ const db = require('../models/sqlmodel');
 
 const mealController = {};
 
+mealController.saveRecipe =  (req, res, next) => {
+
+  const { culture, recipename, ingredients, instructions } = req.body
+  const qStr = `INSERT INTO recipe_book (culture, recipename, ingredients, instructions)
+  VALUES ('${culture }', '${recipename}', '${ingredients}', '${instructions}');`
+
+  async function addRecipe (qStr) {
+    try {
+      const result = db.query(qStr)
+      return next()
+    }
+    catch(err) {
+      return next(err)
+    }
+  }
+
+  addRecipe(qStr);
+  
+}
+
+
+mealController.getRecipes = (req, res, next) => {
+  const { recipe_id } = req.query;
+
+  const qRecipe = `SELECT * FROM recipe_book;`
+
+  db.query(qRecipe)
+   .then((data) =>{
+    res.locals.recipe = data.rows;
+    next();
+   })
+   .catch((err)=>{
+    next({
+      log: 'Error in getRecipes middleware',
+      status: 400,
+      message: `Error: ${err}`,
+    })
+   })
+}
+
+
+
+// CREATE TABLE recipe_book(
+//   id SERIAL PRIMARY KEY,
+//   culture VARCHAR,
+//   recipename: VARCHAR,
+//   ingredients VARCHAR,
+//   instructions: VARCHAR
+//   recipe_id INT
+//   )
 
 
 mealController.getReviews = (req, res, next) => {

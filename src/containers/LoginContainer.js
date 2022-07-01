@@ -13,13 +13,15 @@ function Login () {
     const handleSignUpSumbmit = (e) => {
         fetch('http://localhost:8080/user/signup', {
             method: 'POST',
+            // credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(userLogin)
         })
-            .then((data) => data.json())
-            .then((data) => console.log(data))
+            .then(response => {
+                if(response.status === 200) window.location.href = 'http://localhost:3000/profile';
+            })
             .catch((error) => console.log(error));
     };
 
@@ -32,19 +34,11 @@ function Login () {
             },
             body: JSON.stringify(userLogin)
         })
-            .then((data) => data.json())
-            .then(handleRedirect)
+            .then(response => {
+                if(response.status === 200) window.location.href = 'http://localhost:3000/profile';
+            })
             .catch((error) => console.log(error));
     };
-
-    const handleRedirect = (res) => {
-        if (res.status === 200){
-            window.location.href = 'http://localhost:3000/profile'
-        }
-        else {
-            console.log("Error redirecting client")
-        }
-    }
 
     return (
         <div className="login-container">

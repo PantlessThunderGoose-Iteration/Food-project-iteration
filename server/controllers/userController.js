@@ -17,7 +17,7 @@ userController.verifyUser = (req, res, next) => {
     async function findUser (qStr) {
         try{
             const result = await db.query(qStr)
-            console.log(result)
+            res.locals.id = result.user_id
             return next();
         }
         catch (err) {
@@ -46,7 +46,6 @@ userController.verifyUser = (req, res, next) => {
 
 userController.createUser = (req, res, next) => {
     // write code here
-    
     const password = bcrypt.hashSync(req.body.password, 10);
     const { email }  = req.body;
     //bcrypt password - reassign 
@@ -58,11 +57,12 @@ userController.createUser = (req, res, next) => {
     async function checkingUser(create){
         try{
             const result = await db.query(create);
+            res.locals.id = result.user_id
             return next();
         }
         catch(err){
             console.log("User already exists");
-            res.redirect("/signup")
+            return (next(err))
         }
     }
 

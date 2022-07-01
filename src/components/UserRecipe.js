@@ -11,9 +11,17 @@ function UserRecipe({recipes, setRecipes}) {
         userRecipe = ({ ...userRecipe, [name]: value });
     };
 
+    // {
+    //   userId: cookie,
+    //   recipeName: "xxx",
+    //   culture: "xxx",
+    //   ingredients: 'xxx',
+    //   instructions: 'xxx'
+    // }
+
     // when user signs up, post recipe to database
     const handleRecipeSumbmit = (e) => {
-        fetch('http://localhost:8080/recipe', {
+        fetch('http://localhost:8080/saveRecipe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,7 +41,7 @@ function UserRecipe({recipes, setRecipes}) {
         <h3>My Recipe: </h3>
         <form>
           <label>Title: </label>
-          <input type="text" name="title" onChange={handleInputChange}/>
+          <input type="text" name="recipeName" onChange={handleInputChange}/>
           <label>Culture: </label>
           <input type="text" name="culture" onChange={handleInputChange}/>
           <label>Ingredients: </label>
