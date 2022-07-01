@@ -12,7 +12,7 @@ function Recipe({ meal, recipes, setRecipes }) {
 
     const saveRecipeObj = {
         culture: meal.strArea,
-        recipeName: meal.strMeal,
+        recipename: meal.strMeal,
         ingredients: newArr.toString(),
         instructions: meal.strInstructions
     }
@@ -27,7 +27,7 @@ function Recipe({ meal, recipes, setRecipes }) {
             body: JSON.stringify(saveRecipeObj)
         })
             .then((data) => data.json())
-            .then((data) => console.log(data))
+            .then((data) => alert("Recipe Saved!"))
             .catch((error) => console.log(error));
     }
 
