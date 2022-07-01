@@ -36,9 +36,9 @@ function UserRecipe({recipes, setRecipes}) {
     };
 
   return (
-    <div className="userRecipe">
-      <div>
+    <div id="userRecipeContainer">
         <h3>My Recipe: </h3>
+      <div id= "userRecipe">
         <form>
           <label>Title: </label>
           <input type="text" name="recipeName" onChange={handleInputChange}/>

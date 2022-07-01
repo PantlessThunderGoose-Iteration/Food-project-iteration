@@ -8,5 +8,16 @@ export const recipePage = (meal, setMeal) => {
                 setMeal(data.meals[0]);
             }
         })
+        .then(()=>{
+            fetch('/postRecipe', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                  body: JSON.stringify(meal),
+                })
+                .then((res) => res.json())
+                .catch((err) => console.log(err))
+        })
         .catch((error) => console.log(error));
 };

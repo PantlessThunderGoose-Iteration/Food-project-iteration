@@ -11,7 +11,7 @@ const Main = props => {
         <div id='cultureName'>
             {props.meal.strArea}
         </div>
-        <div>
+        <div id = "infoHeader">
         <h3>Information on this culture's food:</h3>
         <p id='cultureInfo'>{props.info}</p>
       </div>

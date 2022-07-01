@@ -5,7 +5,6 @@ import {
   Link,
 } from "react-router-dom";
 import { useState } from "react";
-import "../styling/App.css";
 import Recipe from "./RecipeContainer";
 import Main from "../components/Main.js";
 // import UserRecipe from "../components/UserRecipe.js";
@@ -170,9 +169,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Link to='/'>
-        <button id='btn1' onClick={() => recipePage(meal, setMeal)}>Get Random Culture</button>
-      </Link>
+      <Link to='/'><button id='btn1' onClick={() => recipePage(meal, setMeal)}>Get Random Culture</button></Link>
       <Link to='/recipe'><button id='btn2'>Get Recipe from this Culture</button></Link>
       <Link to='/profile'><button id='btn3'>Profile</button></Link>
       <Link to='/login'><button id='btn4'>Sign Up / Login</button></Link>
