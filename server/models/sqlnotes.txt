@@ -14,6 +14,10 @@ username VARCHAR
 
 CREATE TABLE recipe_book(
 id SERIAL PRIMARY KEY,
+culture VARCHAR,
+recipeName: VARCHAR,
+ingredients VARCHAR,
+instructions: VARCHAR
 recipe_id INT
 )
 
